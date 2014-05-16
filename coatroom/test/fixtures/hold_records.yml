@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: MyString
+  checker_id: MyString
+  dropoff_time: 2014-05-15 14:03:51
+  pick_up_time: 2014-05-15 14:03:51
+  hold_complete: false
+
+two:
+  user_id: MyString
+  checker_id: MyString
+  dropoff_time: 2014-05-15 14:03:51
+  pick_up_time: 2014-05-15 14:03:51
+  hold_complete: false

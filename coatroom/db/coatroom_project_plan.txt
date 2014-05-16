@@ -1,4 +1,3 @@
-== README
 Coat Room Project Plan
 
 Scope:
@@ -26,37 +25,10 @@ Resources:
   Google API: https://developers.google.com/maps/documentation/javascript/tutorial
   User API: apigee.com? Not sure here. If there is a solution to register customers and securely handle credit card information that's the API I'm looking for. Anything to keep me from being Target
 
+Milestones
+  Friday or Monday: Basic CRUD app. Add users, add checkers, set up mock drop off and pick up.
+  Tuesday: Set Favorites. Start on schedule setting
+  Wednesday: Finish Scheduling. Client notification, User notification
+  Thursday: Work out geolocation and some maps? Rating system.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Database Model
-
-USERS
-  name
-  phone_number
-  email
-  password
-  credit_card
-  stored
-  favorite
-
-CHECKER
-  name
-  address
-  longitude
-  latitude
-  phone_number
-  email
-  password
-  bank_account
-  bank_routing_number
-  storing
-  ammount_earned
-
-HOLD RECORD
-  user_id
-  checker_id
-  dropoff_time
-  pick_up_time
-  hold_complete

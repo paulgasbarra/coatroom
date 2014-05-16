@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+
+  root 'coatroom#index'
+  get 'coatroom/index' => 'coatroom#index'
+  get 'coatroom/search' => 'coatroom#search'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
