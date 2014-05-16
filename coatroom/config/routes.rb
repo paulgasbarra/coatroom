@@ -1,8 +1,30 @@
 Rails.application.routes.draw do
 
   root 'coatroom#index'
-  get 'coatroom/index' => 'coatroom#index'
   get 'coatroom/search' => 'coatroom#search'
+  resources :users
+  resources :checkers
+
+#   Prefix Verb   URI Pattern                  Controller#Action
+#            root GET    /                            coatroom#index
+# coatroom_search GET    /coatroom/search(.:format)   coatroom#search
+#           users GET    /users(.:format)             users#index
+#                 POST   /users(.:format)             users#create
+#        new_user GET    /users/new(.:format)         users#new
+#       edit_user GET    /users/:id/edit(.:format)    users#edit
+#            user GET    /users/:id(.:format)         users#show
+#                 PATCH  /users/:id(.:format)         users#update
+#                 PUT    /users/:id(.:format)         users#update
+#                 DELETE /users/:id(.:format)         users#destroy
+#        checkers GET    /checkers(.:format)          checkers#index
+#                 POST   /checkers(.:format)          checkers#create
+#     new_checker GET    /checkers/new(.:format)      checkers#new
+#    edit_checker GET    /checkers/:id/edit(.:format) checkers#edit
+#         checker GET    /checkers/:id(.:format)      checkers#show
+#                 PATCH  /checkers/:id(.:format)      checkers#update
+#                 PUT    /checkers/:id(.:format)      checkers#update
+#                 DELETE /checkers/:id(.:format)      checkers#destroy
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

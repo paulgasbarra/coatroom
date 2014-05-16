@@ -1,0 +1,14 @@
+<h1>Create Account</h1>
+
+<ul>
+  <form action="/new_account/" method "post">
+    <%= token_tag %>
+    <li>Name: <input type="text" name="name"></li>
+    <li>Phone Number: <input type="text" name="phone_number"></li>
+    <li>Email: <input type="email" name="email"></li>
+    <li>Password: <input type='text' name="password"></li>
+    <li>Credit Card: <input type='text' name="credit_card"></li>
+    <li><input type="submit" value="Create Account"></li>
+
+
+  </form>
