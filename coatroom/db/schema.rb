@@ -44,10 +44,10 @@ ActiveRecord::Schema.define(version: 20140515180351) do
 
   create_table "users", force: true do |t|
     t.string   "name"
-    t.integer  "phone_number"
+    t.string   "phone_number"
     t.string   "email"
     t.string   "password"
-    t.integer  "credit_card"
+    t.string   "credit_card"
     t.boolean  "stored"
     t.integer  "favorite"
     t.datetime "created_at"

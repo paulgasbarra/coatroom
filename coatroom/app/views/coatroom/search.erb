@@ -1,4 +1,17 @@
-user location: <%= @user_location %><br/>
-longitude  = <%= @longitude %><br/>
-latitude = <%= @latitude %><br/>
-Distance = <%= @answer_array %>
+<h1>Search Results</h1>
+
+Coat Rooms nearby:
+<table>
+<% @search_results.each do |checker| %>
+<tr>
+  <td><img src = "<%= checker.name %>" alt = ""></td>
+  <td><%= checker.name %></td>
+  <td>is ready to check your items at <%= checker.address %></td>
+  <td>which is <%= (Geocoder::Calculations.distance_between([checker.latitude, checker.longitude],@user_location)).round(1) %> miles away.
+</tr>
+<% end %>
+</table>
+<a href="/">Return to Search</a>
+
+
+

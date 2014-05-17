@@ -7,6 +7,7 @@ class CheckersController < ApplicationController
 # POST  checker(.:format checker#create
   def create
     checker = Checker.create(checker_params)
+    checkers << checker
     redirect_to "checkers/#{checker.id}"
   end
 
@@ -22,7 +23,7 @@ class CheckersController < ApplicationController
 
 # Checker GET  checker/:id(.:format) checker#show
   def show
-    checker = checker.find(params[:id])
+    @checker = Checker.find(params[:id])
   end
 # PUT  checker/:id(.:format) checker#update
   def update

@@ -1,4 +1,4 @@
-firsclass CreateCheckers < ActiveRecord::Migration
+class CreateCheckers < ActiveRecord::Migration
   def change
     create_table :checkers do |t|
       t.string :name
