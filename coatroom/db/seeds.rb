@@ -18,8 +18,8 @@
  #      t.boolean :storing
  #      t.decimal :ammount_earned
 
-Checker.create(name: 'Hope Chest', address: '915 Broadway, New York, NY', latitude: '40.7415532', longitude: '-73.9896066', phone_number: '5554561234', email: 'hopechest@gmail.com', password: 'xxxxxx', bank_routing_number: 123456, bank_account: 88888888, storing: false, ammount_earned: 0.00)
-Checker.create(name: 'Earl Grey', address: '319 W 30th St, New York, NY', latitude: '40.749841', longitude: '-73.995912', phone_number: '5559081234', email: 'thisguy@gmail.com', password: 'xxxxxx', bank_routing_number: 123456, bank_account: 88888888, storing: false, ammount_earned: 0.00)
+Checker.create(first_name: 'Hope' last_name: 'Chest', address: '915 Broadway, New York, NY', latitude: , longitude: , phone_number: '5554561234', email: 'hopechest@gmail.com', password: 'xxxxxx', bank_routing_number: 123456, bank_account: 88888888, storing: false, ammount_earned: 0.00)
+Checker.create(first_name: 'Earl' last_name: 'Grey', address: '319 W 30th St, New York, NY', latitude: , longitude: '-73.995912', phone_number: '5559081234', email: 'thisguy@gmail.com', password: 'xxxxxx', bank_routing_number: 123456, bank_account: 88888888, storing: false, ammount_earned: 0.00)
 Checker.create(name: 'Dorn Mann', address: '7 E 43rd St, New York, NY', latitude: '40.754105', longitude: '-73.979427', phone_number: '5553211234', email: 'mannd@gmail.com', password: 'xxxxxx', bank_routing_number: 123456, bank_account: 88888888, storing: false, ammount_earned: 0.00)
 
 #   t.string :name

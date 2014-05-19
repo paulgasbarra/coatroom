@@ -11,25 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140515180351) do
+ActiveRecord::Schema.define(version: 20140519190250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "checkers", force: true do |t|
-    t.string   "name"
-    t.string   "address"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street_address"
+    t.string   "apt_number"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
     t.float    "longitude"
     t.float    "latitude"
-    t.decimal  "phone_number"
+    t.text     "phone_number"
     t.string   "email"
     t.string   "password"
-    t.integer  "bank_account"
-    t.integer  "bank_routing_number"
+    t.text     "bank_account"
+    t.text     "bank_routing_number"
+    t.boolean  "active"
     t.boolean  "storing"
     t.decimal  "ammount_earned"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
   create_table "hold_records", force: true do |t|
@@ -43,7 +50,8 @@ ActiveRecord::Schema.define(version: 20140515180351) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "phone_number"
     t.string   "email"
     t.string   "password"
@@ -52,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140515180351) do
     t.integer  "favorite"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "password_digest"
   end
 
 end

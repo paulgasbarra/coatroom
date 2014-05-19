@@ -1,15 +1,5 @@
 <h1>Create Account</h1>
 
-
-<ul>
-  <form action="/users" method "post">
-    <%= token_tag %>
-    <li>Name: <input type="text" name="user[name]"></li>
-    <li>Phone Number: <input type="text" name="user[phone_number]"></li>
-    <li>Email: <input type="email" name="user[email]"></li>
-    <li>Password: <input type='text' name="user[password]"></li>
-    <li>Credit Card: <input type='text' name="user[credit_card]"></li>
-    <li><input type="submit" value="Create Account"></li>
+<%= render 'form' %>
 
 
-  </form>

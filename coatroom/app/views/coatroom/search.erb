@@ -1,17 +1,18 @@
 <h1>Search Results</h1>
 
-Coat Rooms nearby:
+Coatrooms nearby: <%= @search_term %>
+<%= Geocoder.coordinates(@search_term) %>
 <table>
 <% @search_results.each do |checker| %>
 <tr>
-  <td><img src = "<%= checker.name %>" alt = ""></td>
-  <td><%= checker.name %></td>
-  <td>is ready to check your items at <%= checker.address %></td>
-  <td>which is <%= (Geocoder::Calculations.distance_between([checker.latitude, checker.longitude],@user_location)).round(1) %> miles away.
+  <td><%= checker.first_name %> <%= checker.last_name %></td>
+  <td>is ready to check your items at <%= checker.street_address %> <%= checker.apt_number %> <%= checker.city %> <%= checker.state %>.</td>
+  <td>which is <%= Geocoder::Calculations.distance_between([checker.latitude, checker.longitude], @user_location).round(1) %> miles away.</td>
+  <td><a href="/dropoff/<%= checker.id %>">Schedule dropoff with <%= checker.first_name %></a>
 </tr>
 <% end %>
 </table>
-<a href="/">Return to Search</a>
+
 
 
 

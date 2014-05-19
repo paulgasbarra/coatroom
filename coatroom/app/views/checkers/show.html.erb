@@ -1,2 +1,26 @@
-Hi There
-<h1><%= @checker.name %></h1>
+<h1>Hi There <%= @checker.first_name %></h1>
+
+You will be storing items at <%= @checker.street_address %> <%= @checker.apt_number %> <%= @checker.city %> <%= @checker.state %>.<br/>
+Longitude <%= @checker.longitude %>.<br/>
+Latitude <%= @checker.latitude %>.<br/>
+You can be reached at <%= @checker.phone_number %>.<br/>
+<% if @checker.active %>
+  Your status is set to ready to store items.
+  <%= form_for @checker do |t| %>
+     <%= t.hidden_field :active, :value=>false %>
+     <%= t.submit "I'm done." %></form>
+    <% end %>
+  <% else %>
+  Your status is not ready for items.
+  <%= form_for @checker do |t| %>
+     <%= t.hidden_field :active, :value=>true %>
+     <%= t.submit "I'm Ready!" %>
+   <% end %>
+  <% end %>
+<br/>
+
+Ready = <%= @checker.active %><br/>
+
+<a href="<%= @checker.id %>/edit">Edit</a><br/>
+
+

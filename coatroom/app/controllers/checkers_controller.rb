@@ -7,8 +7,7 @@ class CheckersController < ApplicationController
 # POST  checker(.:format checker#create
   def create
     checker = Checker.create(checker_params)
-    checkers << checker
-    redirect_to "checkers/#{checker.id}"
+    redirect_to checker_path(checker)
   end
 
 # new Checker GET  checker/new(.:format) checker#new
@@ -41,20 +40,9 @@ class CheckersController < ApplicationController
   private
 
   def checker_params
-    params.require(checker).permit(:name, :phone_number, :email, :password, :credit_card)
+    params.require(:checker).permit(:first_name, :last_name, :street_address, :apt_number, :city, :state, :phone_number, :email, :password, :bank_account, :bank_routing_number)
   end
 
-      # t.string :name
-      # t.string :address
-      # t.float :longitude
-      # t.float :latitude
-      # t.decimal :phone_number
-      # t.string :email
-      # t.string :password
-      # t.integer :bank_account
-      # t.integer :bank_routing_number
-      # t.boolean :storing
-      # t.decimal :ammount_earne
 
 
 end

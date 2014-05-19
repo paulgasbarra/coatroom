@@ -2,8 +2,16 @@ Rails.application.routes.draw do
 
   root 'coatroom#index'
   get 'coatroom/search' => 'coatroom#search'
+  get 'dropoff/:id' => 'coatroom#dropoff'
+  get 'sessions/new' => 'sessions#new', as: 'log_in'
+  post 'sessions' => 'sessions#create'
+  get 'sessions/delete' => 'sessions#destroy'
+  delete 'sessions' => 'sessions#destroy', as: 'log_out'
+
+  get 'profiles' => 'profiles#index'
   resources :users
   resources :checkers
+  resources :hold_records
 
 #   Prefix Verb   URI Pattern                  Controller#Action
 #            root GET    /                            coatroom#index

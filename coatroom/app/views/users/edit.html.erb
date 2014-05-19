@@ -1,12 +1,4 @@
-<ul>
-  <form action="/users/<%= @user.id %>" method "post">
-    <input type="hidden" name='method' value='put'>
-    <%= token_tag %>
-    <li>Name: <input type="text" name="name" value="@user.name"></li>
-    <li>Phone Number: <input type="text" name="phone_number" value="@user.phone_number"></li>
-    <li>Email: <input type="email" name="email" value="@user.email"></li>
-    <li>Password: <input type='text' name="password" value="@user.password"></li>
-    <li>Credit Card: <input type='text' name="credit_card" value="@user.credit_card"></li>
-    <li><input type="submit" value="Submit Edits" ></li>
-  </form>
-</ul>
+<h1>Edit Your Account</h1>
+
+<%= render 'form' %>
+

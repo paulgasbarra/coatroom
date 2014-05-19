@@ -6,7 +6,15 @@ Enter an address to search for locations in the area.
 <br/>
 <form action="/coatroom/search" method = "get"><input type="text" name = 'search_term' placeholder="Enter an address"><input type="submit"></form>
 
-<a href="/users/new">Sign up as a User</a>
-<br/>
+<% if current_user %>
+  <p>
+    Welcome to CoatRoom <%= current_user.first_name %>.
+  </p>
+  <%= link_to "Log-Out", log_out_path, method: :delete %>
+<% else %>
+  <%= link_to "Log-In", log_in_path %><br/>
+  <%= link_to "Sign up for CoatRoom", new_user_path %><br/>
+<% end %>
+
 <a href="/checkers/new">Sign up as a Checker</a>
 

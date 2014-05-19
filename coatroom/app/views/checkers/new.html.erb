@@ -1,18 +1,6 @@
 <h1>Create Account</h1>
 
-<ul>
-  <form action="/checkers" method "post">
-    <%= token_tag %>
-    <li>Name: <input type="text" name="checker[name]"></li>
-    <li>Address: <input type="text" name="checker[address]"></li>
-     <li>Phone Number: <input type="text" name="checker[phone_number]"></li>
-    <li>Email: <input type="email" name="checker[email]"></li>
-    <li>Password: <input type='text' name="checker[password]"></li>
-    <li>Credit Card: <input type='text' name="checker[credit_card]"></li>
-    <li>Bank Account: <input type='text' name="checker[bank_account]"></li>
-    <li>Bank Routing Number: <input type='text' name="checker[bank_routing_number]"></li>
-    <li><input type="submit" value="Create Account"></li>
+<%= render 'form' %>
 
 
 
-  </form>
