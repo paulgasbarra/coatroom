@@ -3,10 +3,12 @@ class Checker < ActiveRecord::Base
   has_many :users, through: :hold_records
   has_secure_password
 
+
   geocoded_by :address
+  after_validation :geocode
 
   def address
-    [street, city, state].compact.join(', ')
+    [street_address, city, state].compact.join(', ')
   end
 
 end

@@ -1,1 +1,13 @@
 <h1>Schedule a dropoff</h1>
+
+<p><%= current_user.first_name %>, You are scheduling a drop off with <%= @checker.first_name %> <%= @checker.last_name %> at the <%=@checker.street_address %> location.</p>
+
+<p>When would you like to drop off your items?</p>
+
+<p> <form action="/confirmation/<%= @checker.id %>">
+  Day: <input type="date" name="dropoff_day"></p>
+
+  <p> Time: <input type="time" name="dropoff_time">
+  <input type="submit"> </p>
+  </form>
+

@@ -1,6 +1,6 @@
 <h1>Welcome to Coatroom</h1>
 
-Search for CoatRooms
+Search for Coatrooms
 <br/>
 Enter an address to search for locations in the area.
 <br/>
@@ -10,7 +10,8 @@ Enter an address to search for locations in the area.
   <p>
     Welcome to CoatRoom <%= current_user.first_name %>.
   </p>
-  <%= link_to "Log-Out", log_out_path, method: :delete %>
+   <%= link_to "Log-Out", log_out_path, method: :delete %>
+  <% elsif current_checker %>
 <% else %>
   <%= link_to "Log-In", log_in_path %><br/>
   <%= link_to "Sign up for CoatRoom", new_user_path %><br/>

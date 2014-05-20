@@ -1,17 +1,18 @@
 <h1>Search Results</h1>
 
-Coatrooms nearby: <%= @search_term %>
-<%= Geocoder.coordinates(@search_term) %>
-<table>
+Active Coatrooms with in 1 mile of <%= @search_term %>
+<ul>
 <% @search_results.each do |checker| %>
-<tr>
-  <td><%= checker.first_name %> <%= checker.last_name %></td>
-  <td>is ready to check your items at <%= checker.street_address %> <%= checker.apt_number %> <%= checker.city %> <%= checker.state %>.</td>
-  <td>which is <%= Geocoder::Calculations.distance_between([checker.latitude, checker.longitude], @user_location).round(1) %> miles away.</td>
-  <td><a href="/dropoff/<%= checker.id %>">Schedule dropoff with <%= checker.first_name %></a>
-</tr>
+<li><%= checker.first_name%> <%= checker.last_name %>
+    is ready to check your items at <%= checker.address %>  which is <%= Geocoder::Calculations.distance_between(Geocoder.coordinates(checker.address), @user_location).round(1) %> miles away.
+  <% if current_user %>
+      <a href="/dropoff/<%= checker.id %>">Schedule dropoff with <%= checker.first_name %></a>
+  <% else %>
+      <%= link_to "Please log in before scheduling a drop off.", log_in_path %>
+  <% end %>
+</li>
 <% end %>
-</table>
+</ul>
 
 
 
