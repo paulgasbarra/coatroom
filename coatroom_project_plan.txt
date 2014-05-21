@@ -1,0 +1,34 @@
+Coat Room Project Plan
+
+Scope:
+Coat Room is a distributed network of short-term storage locations. Using Coat Room people will be able to drop off items like luggage, briefcases, shopping bags and even coats to Checkers. Micro laborers who agree to hold onto their items for a short time allowing users to move more freely without the hassle of hauling around cumbersome bags.
+
+Features:
+  Users will be able to
+    -find Checkers by entering an address or using their ip location.
+    -get mapped directions to the Checker location.
+    -schedule dropoffs and pickups.
+    -pay for services automatically with no cash changing hands.
+    -store their favorite locations.
+    -rate Checkers.
+
+  Checkers will be able to
+    -set their own schedule.
+    -check on the amount they're to be paid.
+    -update locations.
+
+Models and Wireframes:
+  https://coatroom.mybalsamiq.com/projects/coatroom/prototype/New%20mockup?key=75022991a0ff01bacc78ec96b0bf8e9b6b651768
+
+Resources:
+  Geocoder: https://github.com/alexreisner/geocoder
+  Google API: https://developers.google.com/maps/documentation/javascript/tutorial
+  User API: apigee.com? Not sure here. If there is a solution to register customers and securely handle credit card information that's the API I'm looking for. Anything to keep me from being Target
+
+Milestones
+  Friday or Monday: Basic CRUD app. Add users, add checkers, set up mock drop off and pick up.
+  Tuesday: Set Favorites. Start on schedule setting
+  Wednesday: Finish Scheduling. Client notification, User notification
+  Thursday: Work out geolocation and some maps? Rating system.
+
+
