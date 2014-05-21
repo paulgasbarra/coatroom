@@ -22,9 +22,9 @@ You can be reached at <%= @checker.phone_number %>.<br/>
 
 <table>
 <tr>
+  <th>Client ID</th>
   <th>Client Name</th>
   <th>Client Phone</th>
-  <th>Client ID</th>
   <th>Hold Status</th>
   <th>Dropoff Day</th>
   <th>Dropoff Time</th>
@@ -32,7 +32,38 @@ You can be reached at <%= @checker.phone_number %>.<br/>
   <th>Pick Time</th>
   <th>Hold Complete</th>
 </tr>
+<% @hold_records.each do |record| %>
+  <tr>
+    <th><%= record.user_id %></th>
+    <th><%= User.find(record.user_id).first_name %> <%=User.find(record.user_id).last_name %></th>
+    <th><%= User.find(record.user_id).phone_number %></th>
+    <th><%= record.status %></th>
+    <th><%= record.dropoff_day %></th>
+    <th><%= record.dropoff_time %></th>
+    <th><%= record.pickup_day %></th>
+    <th><%= record.pickup_time %></th>
+    <th><%= record.hold_complete %></th>
+    <th><% if record.status == 'scheduled' %>
+            <%= form_for record do |f| %>
+            <%= f.hidden_field :status, :value=>"in progress" %>
+            <%= f.hidden_field :dropoff_time, :value=>  Time.now %>
+            <%= f.hidden_field :dropoff_day, :value=> Time.now %>
+            <%= f.submit "Check Items In" %>
+            <% end %>
+          <% elsif record.status == 'in progress' %>
+            <%= form_for record do |f| %>
+            <%= f.hidden_field :status, :value=>"completed" %>
+            <%= f.hidden_field :pickup_time, :value=> Time.now %>
+            <%= f.hidden_field :pickup_day, :value=> Time.now %>
+            <%= f.hidden_field :hold_complete, :value=> true %>
+            <%= f.submit "Check Items Out" %>
+            <% end %>
+          <% end %>
+      </th>
 
+
+  </tr>
+<% end %>
 </table>
 
 <a href="<%= @checker.id %>/edit">Edit</a><br/>

@@ -1,22 +1,42 @@
-<h1>Welcome to Coatroom</h1>
+<div class="container">
 
-Search for Coatrooms
-<br/>
-Enter an address to search for locations in the area.
-<br/>
-<form action="/coatroom/search" method = "get"><input type="text" name = 'search_term' placeholder="Enter an address"><input type="submit"></form>
+  <div class="two columns">
+    <h1>Coatroom</h1>
+  </div>
 
-<% if current_user %>
-  <p>Welcome to CoatRoom <%= current_user.first_name %>.</p>
-  <%= link_to "Log-Out", log_out_path, method: :delete %>
-<% elsif current_checker %>
-  <p> Welcome to CoatRoom <%= current_checker.first_name %>.</p>
-  <%= link_to "Log-Out", checker_log_out_path, method: :delete %>
-<% else %>
-  <%= link_to "Log-In as User", log_in_path %><br/>
-  <%= link_to "Log-In as Checker", log_in_checker_path %><br/>
-  <%= link_to "Sign up for CoatRoom", new_user_path %><br/>
-<% end %>
+  <div id = "nav" class="fourteen columns">
+    <ul>
+      <% if current_user %>
+        <li>Hi, <%= current_user.first_name %>. Let us take that for you.</li>
+        <li><%= link_to "Go to Your Profile", user_path(current_user) %></li>
+        <li><%= link_to "Log-Out", log_out_path, method: :delete %></li>
+      <% elsif current_checker %>
+        <li>Hi, <%= current_checker.first_name %>.</li>
+          <% if current_checker.status %>
+            You are ready to check items.
+            <li><%= link_to "Go to Your Profile", checker_path(current_checker) %></li>
+          <% else %>
+            You are currently not checking items.
+            <li><%= link_to "Go to Your Profile to Become Active.", checker_path(current_checker) %></li>
+          <% end %>
+            <li><%= link_to "Log-Out", checker_log_out_path, method: :delete %></li>
+      <% else %>
+            <li><%= link_to "Log-In as User", log_in_path %></li>
+            <li><%= link_to "Log-In as Checker", log_in_checker_path %></li>
+            <li><%= link_to "Sign up for Coatroom", new_user_path %></li>
+            <li><%= link_to "Sign up as a Checker", new_checker_path %></li>
+      <% end %>
+    </ul>
+  </div>
 
-<a href="/checkers/new">Sign up as a Checker</a>
+</div><!-- container -->
+
+<div class="container">
+  <div id = "search_form" >
+  <div id= "search_tool" class="sixteen columns">
+<form  action="/coatroom/search" method = "get"><input id = "search_bar" type="text" name = 'search_term' placeholder="Enter an address to search for coatrooms in the area."><input id = "search_button"type="submit" value="Search"></form>
+    </div>
+  </div>
+</div>
+
 

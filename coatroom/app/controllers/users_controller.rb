@@ -24,6 +24,7 @@ class UsersController < ApplicationController
 # user GET /users/:id(.:format) users#show
   def show
    @user = User.find(params[:id])
+   @hold_records = @user.hold_records
   end
 # PUT /users/:id(.:format) users#update
   def update

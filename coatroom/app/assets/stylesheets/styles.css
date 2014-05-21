@@ -1,0 +1,49 @@
+.container {
+
+}
+
+#nav {
+  padding: 10px;
+}
+
+#nav ul li{
+  display: inline;
+  margin: 10px;
+}
+
+#nav a{
+  text-decoration: none;
+}
+
+#nav a:hover {
+  text-decoration: underline;
+}
+
+#search_form{
+  text-align: center;
+  background-image: url(/assets/coatroom.jpg);
+  background-repeat: no-repeat;
+  height: 250px;
+}
+
+#search_tool{
+  margin-top: 120px;
+}
+
+#search_bar{
+  display: block;
+  border: solid;
+  height: 16px;
+  width: 310px;
+  margin-left: 20%;
+  float: left;
+}
+
+#search_button{
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size: 110%;
+  display: block;
+  height: 34px;
+  float: left;
+  margin: 0px 5px 5px 5px;
+}

@@ -1,7 +1,32 @@
 <h2>Welcome to Coatroom <%= @user.first_name %>.</h2>
 
 <p>Completed and Scheduled Holds</p>
-
+<table>
+  <tr>
+    <th>Checker Name</th>
+    <th>Checker Location</th>
+    <th>Checker Email</th>
+    <th>Hold Status</th>
+    <th>Dropoff Day</th>
+    <th>Dropoff Time</th>
+    <th>Pickup Day</th>
+    <th>Pick Time</th>
+    <th>Hold Complete</th>
+  </tr>
+<% @hold_records.each do |record| %>
+  <tr>
+    <th><%= Checker.find(record.checker_id).first_name %> <%=Checker.find(record.checker_id).last_name %></th>
+    <th><%= Checker.find(record.checker_id).street_address %> <%= Checker.find(record.checker_id).city %> <%= Checker.find(record.checker_id).state %></th>
+    <th><%= Checker.find(record.checker_id).email %></th>
+    <th><%= record.status %></th>
+    <th><%= record.dropoff_day %></th>
+    <th><%= record.dropoff_time %></th>
+    <th><%= record.pickup_day %></th>
+    <th><%= record.pickup_time %></th>
+    <th><%= record.hold_complete %></th>
+  </tr>
+<% end %>
+</table>
 <a href="/users/<%= @user.id %>/edit">Edit your Account</a>
 
 

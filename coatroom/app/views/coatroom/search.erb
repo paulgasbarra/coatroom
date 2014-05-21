@@ -8,7 +8,7 @@ Active Coatrooms with in 1 mile of <%= @search_term %>
   <% if current_user %>
       <%= link_to "Schedule dropoff with #{checker.first_name}.", {:controller => "hold_records", :action => "new", :checker => checker.id } %>
   <% else %>
-      <%= link_to "Please log in before scheduling a drop off.", log_in_user_path %>
+      <%= link_to "Please log in before scheduling a drop off.", log_in_path %>
   <% end %>
 </li>
 <% end %>

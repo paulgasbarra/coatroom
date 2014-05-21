@@ -19,7 +19,7 @@ class CheckerSessionsController < ApplicationController
 
   def destroy
     session[:checker_id] = nil
-    redirect_to log_in_checker_path, notice: "Logged-Out"
+    redirect_to root_path, notice: "Logged-Out"
   end
 
 end

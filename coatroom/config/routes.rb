@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'sessions/new' => 'sessions#new', as: 'log_in'
   post 'sessions' => 'sessions#create'
   get 'sessions/delete' => 'sessions#destroy'
-  delete 'sessions' => 'sessions#destroy', as: 'log_out'
+  delete 'sessions/new' => 'sessions#destroy', as: 'log_out'
 
   get 'sessions/new_checker' => 'checker_sessions#new', as: 'log_in_checker'
   post 'checker_sessions' => 'checker_sessions#create'

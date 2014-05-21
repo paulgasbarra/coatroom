@@ -23,7 +23,8 @@
     <th><%= record.pickup_day %></th>
     <th><%= record.pickup_time %></th>
     <th><%= record.hold_complete %></th>
-    <th><form action = "hold_records/<%= record.id %>" method = "post "><%= token_tag %><input type="hidden" name="method" value = "delete"><button>Delete Record</button></form></th>
+
+    <th><%= link_to 'Delete Hold Record', hold_record_path(record), :method => :delete %></th>
 
   </tr>
 <% end %>

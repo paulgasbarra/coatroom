@@ -23,8 +23,7 @@ class CheckersController < ApplicationController
 # Checker GET  checker/:id(.:format) checker#show
   def show
     @checker = Checker.find(params[:id])
-    id = @checker.id
-    @hold_records = HoldRecord.where(checker_id: id)
+    @hold_records = @checker.hold_records
   end
 # PUT  checker/:id(.:format) checker#update
   def update
@@ -35,8 +34,9 @@ class CheckersController < ApplicationController
 
 # DELETE  checker/:id(.:format)
   def destroy
-    Checker.delete(params[:id])
-    redirect_to checker_path
+    checker = Checker.find(params[:id])
+    checker.destroy
+    redirect_to checkers_path
   end
 
 

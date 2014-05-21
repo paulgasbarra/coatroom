@@ -16,11 +16,17 @@ class HoldRecordsController < ApplicationController
 
   def show
     @hold_record = HoldRecord.find(params[:id])
-    @checker = Checker.find(@hold_record.checker_id)
+    @checker = @hold_record.checker
+  end
+
+  def update
+    hold_record = HoldRecord.find(params[:id])
+    hold_record.update(hold_record_params)
+    redirect_to checker_path(hold_record.checker_id)
   end
 
   def destroy
-    HoldRecord.delete(params[:id])
+    hold_record = HoldRecord.find(params[:id])
     redirect_to hold_records_path
   end
 
