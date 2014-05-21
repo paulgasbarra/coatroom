@@ -4,9 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
  helper_method :current_user
+ helper_method :current_checker
 
   def current_user
     User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def current_checker
+    Checker.find(session[:checker_id]) if session[:checker_id]
   end
 
   def authorize

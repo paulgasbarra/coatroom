@@ -1,0 +1,30 @@
+<h2>Hold Records</h2>
+
+<table>
+<tr>
+  <th>Id</th>
+  <th>User Id</th>
+  <th>Checker Id</th>
+  <th>Status</th>
+  <th>Dropoff Day</th>
+  <th>Dropoff Time</th>
+  <th>Pickup Day</th>
+  <th>Pick Time</th>
+  <th>Hold Complete</th>
+</tr>
+<% @hold_records.each do |record| %>
+  <tr>
+    <th><%= record.id %></th>
+    <th><%= record.user_id %></th>
+    <th><%= record.checker_id %></th>
+    <th><%= record.status %></th>
+    <th><%= record.dropoff_day %></th>
+    <th><%= record.dropoff_time %></th>
+    <th><%= record.pickup_day %></th>
+    <th><%= record.pickup_time %></th>
+    <th><%= record.hold_complete %></th>
+    <th><form action = "hold_records/<%= record.id %>" method = "post "><%= token_tag %><input type="hidden" name="method" value = "delete"><button>Delete Record</button></form></th>
+
+  </tr>
+<% end %>
+</table>

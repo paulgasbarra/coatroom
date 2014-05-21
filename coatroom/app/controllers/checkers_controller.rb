@@ -23,10 +23,13 @@ class CheckersController < ApplicationController
 # Checker GET  checker/:id(.:format) checker#show
   def show
     @checker = Checker.find(params[:id])
+    id = @checker.id
+    @hold_records = HoldRecord.where(checker_id: id)
   end
 # PUT  checker/:id(.:format) checker#update
   def update
     checker = Checker.find(params[:id])
+    checker.update(checker_params)
     redirect_to checker_path(checker)
   end
 
@@ -40,7 +43,7 @@ class CheckersController < ApplicationController
   private
 
   def checker_params
-    params.require(:checker).permit(:first_name, :last_name, :street_address, :apt_number, :city, :state, :phone_number, :email, :password, :bank_account, :bank_routing_number)
+    params.require(:checker).permit(:active, :first_name, :last_name, :street_address, :apt_number, :city, :state, :phone_number, :email, :password, :bank_account, :bank_routing_number)
   end
 
 

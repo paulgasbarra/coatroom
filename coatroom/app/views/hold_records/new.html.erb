@@ -1,0 +1,11 @@
+<h1>Schedule a dropoff</h1>
+
+<p><%= current_user.first_name %>, You are scheduling a drop off with <%= @checker.first_name %> <%= @checker.last_name %> at the <%= @checker.street_address %> location.</p>
+
+  Please fill out the following form:
+  <% hidden_field_tag :checker_id, :value => @checker.id %>
+  <% hidden_field_tag :user_id, :value => current_user.id %>
+
+  <%= render 'form' %>
+
+

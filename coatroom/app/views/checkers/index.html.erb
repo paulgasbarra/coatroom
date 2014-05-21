@@ -1,7 +1,7 @@
 <ul>
-Hey Checker!
+Admins Only!
 <% @checkers.each do |checker| %>
-  <li><%= checker.name %></li>
+  <li><%= checker.first_name %> <%= checker.last_name %> <%= checker.email %></li>
 <% end %>
 </ul>
 

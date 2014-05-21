@@ -42,8 +42,11 @@ ActiveRecord::Schema.define(version: 20140519190250) do
   create_table "hold_records", force: true do |t|
     t.string   "user_id"
     t.string   "checker_id"
-    t.datetime "dropoff_time"
-    t.datetime "pick_up_time"
+    t.string   "status"
+    t.date     "dropoff_day"
+    t.time     "dropoff_time"
+    t.date     "pickup_day"
+    t.time     "pickup_time"
     t.boolean  "hold_complete"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -7,7 +7,10 @@
 <p> <form action="/confirmation/<%= @checker.id %>">
   Day: <input type="date" name="dropoff_day"></p>
 
-  <p> Time: <input type="time" name="dropoff_time">
+  <p> Drop-off time: <input type="time" name="dropoff_time"></p>
+
+    <p> Estimated pick up time: <input type="time" name="pickup_time">
   <input type="submit"> </p>
   </form>
 
+#on submit

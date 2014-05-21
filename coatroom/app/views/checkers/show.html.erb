@@ -1,25 +1,39 @@
 <h1>Hi There <%= @checker.first_name %></h1>
 
-You will be storing items at <%= @checker.street_address %>,  #<%= @checker.apt_number %>, <%= @checker.city %>, <%= @checker.state %>.<br/>
+You will be storing items at <%= @checker.street_address %>, #<%= @checker.apt_number %>, <%= @checker.city %>, <%= @checker.state %>.<br/>
 Longitude <%= @checker.longitude %>.<br/>
 Latitude <%= @checker.latitude %>.<br/>
 You can be reached at <%= @checker.phone_number %>.<br/>
 <% if @checker.active %>
-  Your status is set to ready to store items.
+  Your status is: "Accepting items."
   <%= form_for @checker do |t| %>
      <%= t.hidden_field :active, :value=>false %>
      <%= t.submit "I'm done." %></form>
     <% end %>
   <% else %>
-  Your status is not ready for items.
+  Your status is: "Not accepting items."
   <%= form_for @checker do |t| %>
      <%= t.hidden_field :active, :value=>true %>
-     <%= t.submit "I'm Ready!" %>
+     <%= t.submit "I'm Ready!" %><br/>
    <% end %>
   <% end %>
-<br/>
 
-Ready = <%= @checker.active %><br/>
+<h2>Hold Records</h2>
+
+<table>
+<tr>
+  <th>Client Name</th>
+  <th>Client Phone</th>
+  <th>Client ID</th>
+  <th>Hold Status</th>
+  <th>Dropoff Day</th>
+  <th>Dropoff Time</th>
+  <th>Pickup Day</th>
+  <th>Pick Time</th>
+  <th>Hold Complete</th>
+</tr>
+
+</table>
 
 <a href="<%= @checker.id %>/edit">Edit</a><br/>
 

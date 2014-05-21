@@ -1,0 +1,11 @@
+<%= form_for @hold_record do |f| %>
+  <%= f.label :Dropoff_time %>
+  <%= f.time_field :dropoff_time %>
+  <%= f.label :Dropoff_day %>
+  <%= f.date_field :dropoff_day %>
+  <%= f.label :Pickup_time %>
+  <%= f.time_field :pickup_time %>
+  <%= f.label :Pickup_day %>
+  <%= f.date_field :pickup_day %>
+  <%= f.submit %>
+<% end %>
