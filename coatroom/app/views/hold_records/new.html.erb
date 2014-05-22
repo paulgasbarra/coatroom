@@ -1,10 +1,19 @@
-<h1>Schedule a dropoff</h1>
+<div class="container">
+  <div class= "sixteen columns">
+    <h1>Coatroom</h1>
+  </div>
 
-<p><%= current_user.first_name %>, You are scheduling a drop off with <%= @checker.first_name %> <%= @checker.last_name %> at the <%= @checker.street_address %> location.</p>
+  <div class="sixteen columns">
+    <h3>Schedule a dropoff</h3>
 
-  Please fill out the following form:
+    <p><%= current_user.first_name %>, You are scheduling a drop off with <%= @checker.first_name %> <%= @checker.last_name %> at the <%= @checker.street_address %> location.</p>
+
+    <p>Please fill out the following form:</p>
 
 
-  <%= render 'form' %>
+    <%= render 'form' %>
 
+    <%= link_to "Return to Search", root_path %>
 
+  </div>
+</div>

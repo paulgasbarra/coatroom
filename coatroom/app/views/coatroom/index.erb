@@ -1,30 +1,28 @@
-<div class="container">
+<div id="header" class="container">
 
-  <div class="two columns">
+  <div class="four columns">
     <h1>Coatroom</h1>
   </div>
 
-  <div id = "nav" class="fourteen columns">
+  <div id = "nav" class="ten columns">
     <ul>
       <% if current_user %>
-        <li>Hi, <%= current_user.first_name %>. Let us take that for you.</li>
-        <li><%= link_to "Go to Your Profile", user_path(current_user) %></li>
-        <li><%= link_to "Log-Out", log_out_path, method: :delete %></li>
+        <li><strong>Hi, <%= current_user.first_name %>. Let us take that for you.</strong></li>
+        <li><%= link_to "Go To Your Profile", user_path(current_user) %></li>
+        <li><%= link_to "Log Out", log_out_path, method: :delete %></li>
       <% elsif current_checker %>
-        <li>Hi, <%= current_checker.first_name %>.</li>
-          <% if current_checker.status %>
-            You are ready to check items.
+        <li>Hi, <%= current_checker.first_name %>.
+          <% if current_checker.active %>
+            <strong>You are ready to check items.</strong></li>
             <li><%= link_to "Go to Your Profile", checker_path(current_checker) %></li>
           <% else %>
-            You are currently not checking items.
-            <li><%= link_to "Go to Your Profile to Become Active.", checker_path(current_checker) %></li>
+            <strong>You are currently not checking items.</strong></li>
+            <li><%= link_to "Go To Profile To Become Active", checker_path(current_checker) %></li>
           <% end %>
-            <li><%= link_to "Log-Out", checker_log_out_path, method: :delete %></li>
+            <li><%= link_to "Log Out", checker_log_out_path, method: :delete %></li>
       <% else %>
-            <li><%= link_to "Log-In as User", log_in_path %></li>
-            <li><%= link_to "Log-In as Checker", log_in_checker_path %></li>
-            <li><%= link_to "Sign up for Coatroom", new_user_path %></li>
-            <li><%= link_to "Sign up as a Checker", new_checker_path %></li>
+            <li><%= link_to "Log In as User", log_in_path %></li>
+            <li><%= link_to "Log In as Checker", log_in_checker_path %></li>
       <% end %>
     </ul>
   </div>
@@ -36,6 +34,32 @@
   <div id= "search_tool" class="sixteen columns">
 <form  action="/coatroom/search" method = "get"><input id = "search_bar" type="text" name = 'search_term' placeholder="Enter an address to search for coatrooms in the area."><input id = "search_button"type="submit" value="Search"></form>
     </div>
+  </div>
+</div>
+
+<div id="how_to" class = "container">
+  <div class = "sixteen columns">
+    <h3>How It Works</h3>
+  </div>
+  <div id = "step" class = "one-third column"><%= image_tag "calendar.jpg" %>
+    <div id="step_text">Find a Coatroom near a location of your choice and schedule a drop off.</div>
+  </div>
+  <div id = "step" class = "one-third column"><%= image_tag "front-door.jpg" %>
+    <div id = "step_text">Drop your items with one of our carefully selected Checkers. Pick up when you're ready.</div>
+  </div>
+  <div id = "step" class = "one-third column"><%= image_tag "get-charged.jpg" %>
+    <div id = "step_text">We'll email you a copy of your bill and a summary of your transaction. That's it!</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div id="bottom_nav" class = "sixteen columns">
+    <ul >
+      <li><%= link_to "Sign up for Coatroom", new_user_path %></li>
+      <li><%= link_to "Sign up as a Checker", new_checker_path %></li>
+    </ul>
   </div>
 </div>
 

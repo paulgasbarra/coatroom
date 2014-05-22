@@ -1,26 +1,35 @@
-<h1>Hi There <%= @checker.first_name %></h1>
 
-You will be storing items at <%= @checker.street_address %>, #<%= @checker.apt_number %>, <%= @checker.city %>, <%= @checker.state %>.<br/>
-Longitude <%= @checker.longitude %>.<br/>
-Latitude <%= @checker.latitude %>.<br/>
-You can be reached at <%= @checker.phone_number %>.<br/>
-<% if @checker.active %>
-  Your status is: "Accepting items."
-  <%= form_for @checker do |t| %>
-     <%= t.hidden_field :active, :value=>false %>
-     <%= t.submit "I'm done." %></form>
-    <% end %>
-  <% else %>
-  Your status is: "Not accepting items."
-  <%= form_for @checker do |t| %>
-     <%= t.hidden_field :active, :value=>true %>
-     <%= t.submit "I'm Ready!" %><br/>
-   <% end %>
-  <% end %>
+<div class="container">
+  <div class= "sixteen columns">
+    <h1>Coatroom</h1>
+  </div>
 
-<h2>Hold Records</h2>
+  <div class= "sixteen columns">
+    <h3>Hi there, <%= @checker.first_name %>.</h3>
 
-<table>
+
+       You will be storing items at <%= @checker.street_address %>, #<%= @checker.apt_number %>, <%= @checker.city %>, <%= @checker.state %>.<br/>
+
+       Longitude <%= @checker.longitude %>.<br/>
+       Latitude <%= @checker.latitude %>.<br/>
+       You can be reached at <%= @checker.phone_number %>.<br/>
+      <% if @checker.active %>
+       Your status is: "Accepting items."
+       <%= form_for @checker do |t| %>
+       <%= t.hidden_field :active, :value=>false %>
+       <%= t.submit "I'm done." %></form>
+       <% end %>
+      <% else %>
+       Your status is: "Not accepting items."
+       <%= form_for @checker do |t| %>
+       <%= t.hidden_field :active, :value=>true %>
+       <%= t.submit "I'm Ready!" %><br/>
+       <% end %>
+      <% end %>
+
+  <h3>Hold Records</h3>
+
+  <table class="hold_records">
 <tr>
   <th>Client ID</th>
   <th>Client Name</th>
@@ -34,21 +43,21 @@ You can be reached at <%= @checker.phone_number %>.<br/>
 </tr>
 <% @hold_records.each do |record| %>
   <tr>
-    <th><%= record.user_id %></th>
-    <th><%= User.find(record.user_id).first_name %> <%=User.find(record.user_id).last_name %></th>
-    <th><%= User.find(record.user_id).phone_number %></th>
-    <th><%= record.status %></th>
-    <th><%= record.dropoff_day %></th>
-    <th><%= record.dropoff_time %></th>
-    <th><%= record.pickup_day %></th>
-    <th><%= record.pickup_time %></th>
-    <th><%= record.hold_complete %></th>
-    <th><% if record.status == 'scheduled' %>
+    <td><%= record.user_id %></td>
+    <td><%= User.find(record.user_id).first_name %> <%=User.find(record.user_id).last_name %></td>
+    <td><%= User.find(record.user_id).phone_number %></td>
+    <td><%= record.status %></td>
+    <td><%= record.dropoff_day %></td>
+    <td><%= record.dropoff_time %></td>
+    <td><%= record.pickup_day %></td>
+    <td><%= record.pickup_time %></td>
+    <td><%= record.hold_complete %></td>
+    <td><% if record.status == 'scheduled' %>
             <%= form_for record do |f| %>
             <%= f.hidden_field :status, :value=>"in progress" %>
             <%= f.hidden_field :dropoff_time, :value=>  Time.now %>
             <%= f.hidden_field :dropoff_day, :value=> Time.now %>
-            <%= f.submit "Check Items In" %>
+            <%= f.submit "Check Items In" %></td>
             <% end %>
           <% elsif record.status == 'in progress' %>
             <%= form_for record do |f| %>
@@ -56,16 +65,15 @@ You can be reached at <%= @checker.phone_number %>.<br/>
             <%= f.hidden_field :pickup_time, :value=> Time.now %>
             <%= f.hidden_field :pickup_day, :value=> Time.now %>
             <%= f.hidden_field :hold_complete, :value=> true %>
-            <%= f.submit "Check Items Out" %>
+            <%= f.submit "Check Items Out" %></td>
             <% end %>
           <% end %>
-      </th>
-
 
   </tr>
-<% end %>
+  <% end %>
 </table>
 
-<a href="<%= @checker.id %>/edit">Edit</a><br/>
-
-
+   <a href="<%= @checker.id %>/edit">Edit</a><br/>
+   <%= link_to "Return to Search", root_path %>
+  </div>
+</div>

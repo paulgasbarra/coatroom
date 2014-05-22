@@ -1,18 +1,26 @@
-<h1>Search Results</h1>
 
-Active Coatrooms with in 1 mile of <%= @search_term %>
-<ul>
-<% @search_results.each do |checker| %>
-<li><%= checker.first_name%> <%= checker.last_name %>
-    is ready to check your items at <%= checker.address %>  which is <%= Geocoder::Calculations.distance_between(Geocoder.coordinates(checker.address), @user_location).round(1) %> miles away.
-  <% if current_user %>
-      <%= link_to "Schedule dropoff with #{checker.first_name}.", {:controller => "hold_records", :action => "new", :checker => checker.id } %>
-  <% else %>
-      <%= link_to "Please log in before scheduling a drop off.", log_in_path %>
-  <% end %>
-</li>
-<% end %>
-</ul>
+<div class="container">
+  <div class= "sixteen columns">
+    <h1>Coatroom</h1>
+  </div>
+
+  <div class= "sixteen columns">
+    <h3>Search Results</h3>
+       <strong>Active Coatrooms near <%= @search_term %></strong>
+        <ul>
+          <% @search_results.each do |checker| %>
+            <li><%= checker.first_name%> <%= checker.last_name %> is ready to check your items at <%= checker.address %>  which is <%= Geocoder::Calculations.distance_between(Geocoder.coordinates(checker.address), @user_location).round(1) %> miles to the <%= Geocoder::Calculations.compass_point(checker.bearing_from(@user_location)) %> of the queried location.
+              <% if current_user %>
+                <%= link_to "Schedule dropoff with #{checker.first_name}.", {:controller => "hold_records", :action => "new", :checker => checker.id } %>
+              <% else %>
+                <%= link_to "Please log in before scheduling a drop off.", log_in_path %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+    <%= link_to "Return to Search", root_path %>
+  </div>
+</div>
 
 
 

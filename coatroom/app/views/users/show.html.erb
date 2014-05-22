@@ -1,32 +1,46 @@
-<h2>Welcome to Coatroom <%= @user.first_name %>.</h2>
+<div class="container">
+<div class= "sixteen columns">
+  <h1>Coatroom</h1>
+</div>
 
-<p>Completed and Scheduled Holds</p>
-<table>
-  <tr>
-    <th>Checker Name</th>
-    <th>Checker Location</th>
-    <th>Checker Email</th>
-    <th>Hold Status</th>
-    <th>Dropoff Day</th>
-    <th>Dropoff Time</th>
-    <th>Pickup Day</th>
-    <th>Pick Time</th>
-    <th>Hold Complete</th>
-  </tr>
-<% @hold_records.each do |record| %>
-  <tr>
-    <th><%= Checker.find(record.checker_id).first_name %> <%=Checker.find(record.checker_id).last_name %></th>
-    <th><%= Checker.find(record.checker_id).street_address %> <%= Checker.find(record.checker_id).city %> <%= Checker.find(record.checker_id).state %></th>
-    <th><%= Checker.find(record.checker_id).email %></th>
-    <th><%= record.status %></th>
-    <th><%= record.dropoff_day %></th>
-    <th><%= record.dropoff_time %></th>
-    <th><%= record.pickup_day %></th>
-    <th><%= record.pickup_time %></th>
-    <th><%= record.hold_complete %></th>
-  </tr>
+<div class= "sixteen columns">
+<h3>Welcome to Coatroom <%= @user.first_name %>.</h3>
+
+<h4>Completed and Scheduled Holds</h4>
+<% if @hold_records.length > 0 %>
+    <table class="hold_records">
+        <tr>
+            <th>Checker Name</th>
+            <th>Checker Location</th>
+            <th>Checker Email</th>
+            <th>Hold Status</th>
+            <th>Dropoff Day</th>
+            <th>Dropoff Time</th>
+            <th>Pickup Day</th>
+            <th>Pick Time</th>
+            <th>Hold Complete</th>
+        </tr>
+    <% @hold_records.each do |record| %>
+        <tr>
+            <td><%= Checker.find(record.checker_id).first_name %> <%=Checker.find(record.checker_id).last_name %></td>
+            <td><%= Checker.find(record.checker_id).street_address %> <%= Checker.find(record.checker_id).city %> <%= Checker.find(record.checker_id).state %></td>
+            <td><%= Checker.find(record.checker_id).email %></td>
+            <td><%= record.status %></td>
+            <td><%= record.dropoff_day %></td>
+            <td><%= record.dropoff_time %></td>
+            <td><%= record.pickup_day %></td>
+            <td><%= record.pickup_time %></td>
+            <td><%= record.hold_complete %></td>
+        </tr>
+    <% end %>
+    </table>
+<% else %>
+    You have no dropoffs scheduled or any holds. <br/>
+    <%= link_to "Search for a location to begin a booking.", root_path %> <br/>
 <% end %>
-</table>
-<a href="/users/<%= @user.id %>/edit">Edit your Account</a>
+<a href="/users/<%= @user.id %>/edit">Edit your Account</a> <br/>
+<%= link_to "Return to search.", root_path %>
+</div>
 
+</div>
 
