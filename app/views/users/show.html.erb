@@ -1,27 +1,27 @@
 <div class="container">
-<div class= "sixteen columns">
-  <h1>Coatroom</h1>
-</div>
+  <div class= "sixteen columns">
+    <h1>Coatroom</h1>
+  </div>
 
-<div class= "sixteen columns">
-<h3>Welcome to Coatroom <%= @user.first_name %>.</h3>
+  <div class= "sixteen columns">
+    <h3>Welcome to Coatroom <%= @user.first_name %>.</h3>
 
-<h4>Completed and Scheduled Holds</h4>
-<% if @hold_records.length > 0 %>
-    <table class="hold_records">
+    <h4>Completed and Scheduled Holds</h4>
+    <% if @hold_records.length > 0 %>
+      <table class="hold_records">
         <tr>
-            <th>Checker Name</th>
-            <th>Checker Location</th>
-            <th>Checker Email</th>
-            <th>Hold Status</th>
-            <th>Dropoff Day</th>
-            <th>Dropoff Time</th>
-            <th>Pickup Day</th>
-            <th>Pick Time</th>
-            <th>Hold Complete</th>
+          <th>Checker Name</th>
+          <th>Checker Location</th>
+          <th>Checker Email</th>
+          <th>Hold Status</th>
+          <th>Dropoff Day</th>
+          <th>Dropoff Time</th>
+          <th>Pickup Day</th>
+          <th>Pick Time</th>
+          <th>Hold Complete</th>
         </tr>
-    <% @hold_records.each do |record| %>
-        <tr>
+        <% @hold_records.each do |record| %>
+          <tr>
             <td><%= Checker.find(record.checker_id).first_name %> <%=Checker.find(record.checker_id).last_name %></td>
             <td><%= Checker.find(record.checker_id).street_address %> <%= Checker.find(record.checker_id).city %> <%= Checker.find(record.checker_id).state %></td>
             <td><%= Checker.find(record.checker_id).email %></td>
@@ -31,16 +31,15 @@
             <td><%= record.pickup_day %></td>
             <td><%= record.pickup_time %></td>
             <td><%= record.hold_complete %></td>
-        </tr>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      You have no dropoffs scheduled or any holds. <br/>
+      <%= link_to "Search for a location to begin a booking.", root_path %> <br/>
     <% end %>
-    </table>
-<% else %>
-    You have no dropoffs scheduled or any holds. <br/>
-    <%= link_to "Search for a location to begin a booking.", root_path %> <br/>
-<% end %>
-<a href="/users/<%= @user.id %>/edit">Edit your Account</a> <br/>
-<%= link_to "Return to search.", root_path %>
-</div>
+    <a href="/users/<%= @user.id %>/edit">Edit your Account</a> <br/>
+    <%= link_to "Return to search.", root_path %>
+  </div>
 
 </div>
-

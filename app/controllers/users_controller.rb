@@ -1,38 +1,39 @@
 class UsersController < ApplicationController
 
-#users GET /users(.:format) users#index
+  #users GET /users(.:format) users#index
   def index
     @user = current_user
     @users = User.all
   end
-# POST /users(.:format)users#create
+
+  # POST /users(.:format)users#create
   def create
     user = User.create(user_params)
     redirect_to user_path(user)
   end
 
-# new_user GET /users/new(.:format) users#new
+  # new_user GET /users/new(.:format) users#new
   def new
     @user = User.new
   end
 
-# edit_user GET /users/:id/edit(.:format) users#edit
+  # edit_user GET /users/:id/edit(.:format) users#edit
   def edit
     @user = User.find(params[:id])
   end
 
-# user GET /users/:id(.:format) users#show
+  # user GET /users/:id(.:format) users#show
   def show
-   @user = User.find(params[:id])
-   @hold_records = @user.hold_records
+    @user = User.find(params[:id])
+    @hold_records = @user.hold_records
   end
-# PUT /users/:id(.:format) users#update
+  # PUT /users/:id(.:format) users#update
   def update
     @user = User.find(params[:id])
     redirect_to user_path(@user)
   end
 
-# DELETE /users/:id(.:format)
+  # DELETE /users/:id(.:format)
   def destroy
     User.delete(params[:id])
     redirect_to users_path

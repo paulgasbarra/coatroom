@@ -14,15 +14,15 @@
         <li>Hi, <%= current_checker.first_name %>.
           <% if current_checker.active %>
             <strong>You are ready to check items.</strong></li>
-            <li><%= link_to "Go to Your Profile", checker_path(current_checker) %></li>
+        <li><%= link_to "Go to Your Profile", checker_path(current_checker) %></li>
           <% else %>
-            <strong>You are currently not checking items.</strong></li>
-            <li><%= link_to "Go To Profile To Become Active", checker_path(current_checker) %></li>
+        <strong>You are currently not checking items.</strong></li>
+        <li><%= link_to "Go To Profile To Become Active", checker_path(current_checker) %></li>
           <% end %>
-            <li><%= link_to "Log Out", checker_log_out_path, method: :delete %></li>
+          <li><%= link_to "Log Out", checker_log_out_path, method: :delete %></li>
       <% else %>
-            <li><%= link_to "Log In as User", log_in_path %></li>
-            <li><%= link_to "Log In as Checker", log_in_checker_path %></li>
+          <li><%= link_to "Log In as User", log_in_path %></li>
+          <li><%= link_to "Log In as Checker", log_in_checker_path %></li>
       <% end %>
     </ul>
   </div>
@@ -31,8 +31,8 @@
 
 <div class="container">
   <div id = "search_form" >
-  <div id= "search_tool" class="sixteen columns">
-<form  action="/coatroom/search" method = "get"><input id = "search_bar" type="text" name = 'search_term' placeholder="Enter an address to search for coatrooms in the area."><input id = "search_button"type="submit" value="Search"></form>
+    <div id= "search_tool" class="sixteen columns">
+      <form  action="/coatroom/search" method = "get"><input id = "search_bar" type="text" name = 'search_term' placeholder="Enter an address to search for coatrooms in the area."><input id = "search_button"type="submit" value="Search"></form>
     </div>
   </div>
 </div>
@@ -49,8 +49,8 @@
   </div>
   <div id = "step" class = "one-third column"><%= image_tag "get-charged.jpg" %>
     <div id = "step_text">We'll email you a copy of your bill and a summary of your transaction. That's it!</div>
-    </div>
   </div>
+</div>
 </div>
 
 
@@ -62,5 +62,3 @@
     </ul>
   </div>
 </div>
-
-

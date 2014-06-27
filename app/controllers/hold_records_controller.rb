@@ -27,6 +27,7 @@ class HoldRecordsController < ApplicationController
 
   def destroy
     hold_record = HoldRecord.find(params[:id])
+    # Should this record be deleted?
     redirect_to hold_records_path
   end
 
@@ -37,4 +38,3 @@ class HoldRecordsController < ApplicationController
   end
 
 end
-
