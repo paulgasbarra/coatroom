@@ -1,0 +1,6 @@
+<ul>
+  Admins Only!
+  <% @checkers.each do |checker| %>
+    <li><%= checker.first_name %> <%= checker.last_name %> <%= checker.email %>. <%= link_to 'Delete Checker', checker_path(checker), :method => :delete %></li>
+  <% end %>
+</ul>
